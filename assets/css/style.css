@@ -1,0 +1,60 @@
+body {
+   width: 100%;
+   height: 100%;
+   background-color: pink;
+   font-size: 14px;
+}
+
+p {
+   text-indent: 50px;
+}
+
+.entete {
+   text-align: center;
+}
+
+.entete img {
+   width: 200px;
+   height: 130px;
+}
+
+#page {
+   width: 80%;
+   height: 800px;
+   border: 3px solid;
+   background-color: lightyellow;
+   margin: auto;
+}
+
+#aboutme {
+   color: black;
+}
+
+footer {
+   color: gray;
+   text-align: center;
+}
+
+table, th, td {
+   border: 1px solid;
+   margin-left: 50px;
+}
+
+ol {
+   list-style-type: upper-roman;
+   margin-left: 50px;
+
+}
+
+h1 {
+   color: black;
+   font-size: 18px;
+   text-align: center;
+}
+
+h2 {
+   color: black;
+   font-size: 16px;
+   text-align: center;
+}
+
