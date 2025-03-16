@@ -115,3 +115,29 @@ h2 {
    font-size: 24px;
 }
 
+.exercice {
+    margin: 20px 50px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+}
+
+.table-container {
+    margin: 15px 0;
+}
+
+#exercice4Resultat table {
+    width: 80%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+#exercice4Resultat td, #exercice4Resultat th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#exercice4Resultat tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

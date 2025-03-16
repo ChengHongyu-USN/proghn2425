@@ -52,3 +52,31 @@ function aide() {
         text.innerHTML = "";
     }
 }
+
+function exercice4() {
+    const text = document.getElementById("texteExercice4").value;
+    const resultDiv = document.getElementById("exercice4Resultat");
+    
+    resultDiv.innerHTML = "";
+    
+    const mots = text.split(/\s+/).filter(word => word.length > 0);
+    
+    const table = document.createElement("table");
+    const tbody = document.createElement("tbody");
+    
+    mots.forEach((mot, index) => {
+        const row = document.createElement("tr");
+        const cell1 = document.createElement("td");
+        const cell2 = document.createElement("td");
+        
+        cell1.textContent = `Mot ${index + 1}`;
+        cell2.textContent = mot;
+        
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        tbody.appendChild(row);
+    });
+    
+    table.appendChild(tbody);
+    resultDiv.appendChild(table);
+}
