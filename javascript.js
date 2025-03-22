@@ -53,30 +53,34 @@ function aide() {
     }
 }
 
-function exercice4() {
-    const text = document.getElementById("texteExercice4").value;
-    const resultDiv = document.getElementById("exercice4Resultat");
-    
-    resultDiv.innerHTML = "";
-    
-    const mots = text.split(/\s+/).filter(word => word.length > 0);
-    
-    const table = document.createElement("table");
-    const tbody = document.createElement("tbody");
-    
-    mots.forEach((mot, index) => {
-        const row = document.createElement("tr");
-        const cell1 = document.createElement("td");
-        const cell2 = document.createElement("td");
-        
-        cell1.textContent = `Mot ${index + 1}`;
-        cell2.textContent = mot;
-        
-        row.appendChild(cell1);
-        row.appendChild(cell2);
-        tbody.appendChild(row);
+window.onload = function() {
+    let fileInput = document.getElementById('fileInput');
+    let fileDisplayArea = document.getElementById('fileDisplayArea');
+
+    fileInput.addEventListener('change', function(e) {
+        let file = fileInput.files[0];
+        let textType = new RegExp("text.*");
+
+        if (file.type.match(textType)) { // on vérifie qu'on a bien un fichier texte
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                fileDisplayArea.innerText = reader.result;
+            }
+            reader.readAsText(file);    
+
+            document.getElementById("logger").innerHTML = '<span class="infolog">Fichier chargé avec succès</span>';
+        } else { // pas un fichier texte : message d'erreur.
+            fileDisplayArea.innerText = "";
+            document.getElementById("logger").innerHTML = '<span class="errorlog">Type de fichier non supporté !</span>';
+        }
     });
-    
-    table.appendChild(tbody);
-    resultDiv.appendChild(table);
+}
+
+function segmentation() {
+      const analyse = document.getElementById("fileDisplayArea").innerText;
+      const result = analyse.split(",").map(item => item.trim());
+      document.getElementById("page-analysis").innerHTML = `
+        <h3>Résultat de segmentation (${result.length} éléments)</h3>
+        <ol>${result.map(item => `<li>${item}</li>`).join("")}</ol>
+    `;
 }
